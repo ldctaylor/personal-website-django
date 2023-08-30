@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from blog.models import Post, Comment 
 from .forms import CommentForm
@@ -13,6 +13,16 @@ class Index(ListView):
 class DetailPostView(DetailView):
     model = Post 
     template_name = 'blog/blog_post.html'
+
+class LikePost(View):
+    def post(self, request, pk):
+        post = Post.objects.get(id=pk)
+        if post.likes.filter(pk=self.request.user.id).exists():
+            post.likes.remove(request.user.id)
+        else:
+            post.likes.add(request.user.id)
+        post.save()
+        return redirect('detail_post', pk)
 
 # def blog_category(request, category):
 #     posts = Post.objects.filter(

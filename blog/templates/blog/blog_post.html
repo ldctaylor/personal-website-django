@@ -10,6 +10,17 @@
 
 <div class="row">
     <div class="col-md-6 col-12 mx-md-auto mb-3 pb-2 mx-3">
+        {% if post.categories.count == 1 %}
+        <p class="text-muted">Category:
+        {% else %}
+        <p class="text-muted">Categories:
+        {% endif %}        
+        {% for category in post.categories.all %}
+            <a href="#">
+                {{ category.name }}
+            </a>&nbsp
+            {% endfor %}
+        </p>
         <h1>{{ post.title }}</h1>
         <p class="text-muted">
             Written by {{post.author.username }} on {{ post.created_on }}
@@ -17,6 +28,15 @@
         <div>
             {{ post.content|safe }}
         </div>
+    </div>
+</div>
+<div class="row my-3">
+    <div class="col-md-6 col-12 mx-md-auto mx-3">
+        {% if post.likes.count == 1%}
+        <p class="text-muted">{{ object.likes.count }} person likes this post</p>
+        {% else %}
+        <p>{{ post.likes.count }} people like this post</p>
+        {% endif %}
     </div>
 </div>
 {% endblock page_content %}
