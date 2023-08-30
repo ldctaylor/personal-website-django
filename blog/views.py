@@ -2,17 +2,17 @@ from django.shortcuts import render
 from django.views import View
 from blog.models import Post, Comment 
 from .forms import CommentForm
+from django.views.generic import ListView, DetailView
 
-class Index(View):
-    def get(self, request):
-        return render(request, 'blog/index.html')
+class Index(ListView):
+    model = Post
+    queryset = Post.objects.all().order_by('-created_on')
+    template_name = 'blog/index.html'
+    paginate_by = 1
 
-# def blog_index(request):
-#     posts = Post.objects.all().order_by('-created_on')
-#     context = {
-#         'posts': posts,
-#     }
-#     return render(request, 'blog_index.html', context)
+class DetailPostView(DetailView):
+    model = Post 
+    template_name = 'blog/blog_post.html'
 
 # def blog_category(request, category):
 #     posts = Post.objects.filter(
