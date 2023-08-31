@@ -29,14 +29,14 @@ class DetailPostView(DetailView):
         return context
 
 class LikePost(View):
-    def post(self, request, slug):
+    def post(self, request, pk, slug):
         post = Post.objects.get(slug='slug')
-        if post.likes.filter(slug=self.request.user.id).exists():
+        if post.likes.filter(pk=self.request.user.id).exists():
             post.likes.remove(request.user.id)
         else:
             post.likes.add(request.user.id)
         post.save()
-        return redirect('detail_post', slug)
+        return redirect('detail_post', pk)
 
 # def blog_category(request, category):
 #     posts = Post.objects.filter(
