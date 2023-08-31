@@ -40,12 +40,12 @@
 
         {% if request.user.is_authenticated %}
             {% if liked_by_user %}
-                <form method="POST" action="{% url 'like_post' post.id %}">
+                <form method="POST" action="{% url 'like_post' post.slug %}">
                     {% csrf_token %}
                     <button class="btn btn-outline-primary"><ion-icon name="heart-dislike-outline"></ion-icon> Unlike this post</button>
                 </form>
             {% else %}
-                <form method="POST" action="{% url 'like_post' post.id %}">
+                <form method="POST" action="{% url 'like_post' post.slug %}">
                     {% csrf_token %}
                     <button class="btn btn-outline-primary"><ion-icon name="heart-outline"></ion-icon> Like this post</button>
                 </form>
