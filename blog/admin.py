@@ -1,8 +1,11 @@
 from django.contrib import admin
 from blog.models import Post, Category, Comment
 
+# class AuthorAdmin(admin.ModelAdmin):
+#     
+
 class PostAdmin(admin.ModelAdmin):
-    pass
+    list_display = ('title', 'status', 'slug', 'created_on', 'last_modified', 'featured')
 
 class CategoryAdmin(admin.ModelAdmin):
     pass

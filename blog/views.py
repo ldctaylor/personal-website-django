@@ -6,13 +6,27 @@ from django.views.generic import ListView, DetailView
 
 class Index(ListView):
     model = Post
-    queryset = Post.objects.all().order_by('-created_on')
+    queryset = Post.newmanager.all().order_by('-created_on')
     template_name = 'blog/index.html'
-    paginate_by = 1
+    paginate_by = 5
+
+class Featured(ListView):
+    model = Post
+    queryset = Post.newmanager.filter(featured=True).order_by('-created_on')
+    template_name = 'blog/featured.html'
+    paginate_by = 3
 
 class DetailPostView(DetailView):
     model = Post 
     template_name = 'blog/blog_post.html'
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(DetailPostView, self).get_context_data(*args, **kwargs)
+        context['liked_by_user'] = False
+        post = Post.objects.get(id=self.kwargs.get('pk'))
+        if post.likes.filter(pk=self.request.user.id).exists():
+            context['liked_by_user'] = True
+        return context
 
 class LikePost(View):
     def post(self, request, pk):

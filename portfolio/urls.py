@@ -15,8 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from blog.views import Featured
 
 urlpatterns = [
+    path('', Featured.as_view(), name='featured'),
     path('opsroom/', admin.site.urls),
     path('projects/', include('projects.urls')),
     path('blog/', include('blog.urls')),

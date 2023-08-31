@@ -3,8 +3,8 @@
 {% block page_content %}
 <div class="row">
     <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
-        <h1 class="fw-bolder">Articles</h1>
-        <h5 class="text-muted">Coffees and dreams.</h5>
+        <h1 class="fw-bolder">Featured Posts</h1>
+        <h5 class="text-muted">Take a look</h5>
     </div>
 </div>
 
@@ -64,19 +64,3 @@
 
 
 {% endblock page_content %}
-
-{% comment %}
-<!--     <h2><a href="{% url 'blog_detail' post.pk%}">{{ post.title }}</a></h2>
-    <small>
-        {{ post.created_on.date }} |&nbsp;
-        Categories:&nbsp;
-        {% for category in post.categories.all %}
-        <a href="{% url 'blog_category' category.name %}">
-            {{ category.name }}
-        </a>&nbsp;
-
-    </small>
-    <p>{{ post.body | slice:":400" }}...</p>
-    {% endfor %}
-</div> -->
-{% endcomment %}
