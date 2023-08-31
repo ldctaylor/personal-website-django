@@ -21,7 +21,7 @@ class Post(models.Model):
     )
 
     title = models.CharField(max_length=255)
-    slug = models.SlugField(max_length=255, unique_for_date='created_on')
+    slug = models.SlugField(max_length=255, unique=True, null=False)
     status = models.CharField(max_length=10, choices=options, default='draft')
     content = HTMLField()
     created_on = models.DateTimeField(auto_now_add=True)
