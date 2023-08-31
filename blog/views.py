@@ -23,20 +23,20 @@ class DetailPostView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(DetailPostView, self).get_context_data(*args, **kwargs)
         context['liked_by_user'] = False
-        post = Post.objects.get(id=self.kwargs.get('pk'))
+        post = Post.objects.get(slug=self.kwargs.get('slug'))
         if post.likes.filter(pk=self.request.user.id).exists():
             context['liked_by_user'] = True
         return context
 
 class LikePost(View):
-    def post(self, request, pk):
-        post = Post.objects.get(id=pk)
+    def post(self, request, slug):
+        post = Post.objects.get(slug=slug)
         if post.likes.filter(pk=self.request.user.id).exists():
             post.likes.remove(request.user.id)
         else:
             post.likes.add(request.user.id)
         post.save()
-        return redirect('detail_post', pk)
+        return redirect('detail_post', slug=post.slug)
 
 # def blog_category(request, category):
 #     posts = Post.objects.filter(
