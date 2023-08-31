@@ -30,13 +30,13 @@ class DetailPostView(DetailView):
 
 class LikePost(View):
     def post(self, request, slug):
-        post = Post.objects.get(slug='slug')
+        post = Post.objects.get(slug=slug)
         if post.likes.filter(pk=self.request.user.id).exists():
             post.likes.remove(request.user.id)
         else:
             post.likes.add(request.user.id)
         post.save()
-        return redirect('detail_post', slug)
+        return redirect('detail_post', slug=post.slug)
 
 # def blog_category(request, category):
 #     posts = Post.objects.filter(
