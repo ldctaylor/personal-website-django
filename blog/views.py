@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from blog.models import Post, Comment 
 from .forms import CommentForm
@@ -23,7 +23,7 @@ class DetailPostView(DetailView):
     def get_context_data(self, *args, **kwargs):
         context = super(DetailPostView, self).get_context_data(*args, **kwargs)
         context['liked_by_user'] = False
-        post = Post.objects.get(slug=self.kwargs.get('slug'))
+        post = get_object_or_404(Post, slug=self.kwargs.get('slug'), status='published') # ensures only published posts are retrieved
         if post.likes.filter(pk=self.request.user.id).exists():
             context['liked_by_user'] = True
         return context

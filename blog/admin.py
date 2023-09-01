@@ -6,6 +6,7 @@ from blog.models import Post, Category, Comment
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ('title', 'status', 'slug', 'created_on', 'last_modified', 'featured')
+    prepopulated_fields={'slug': ('title',)}
 
 class CategoryAdmin(admin.ModelAdmin):
     pass
