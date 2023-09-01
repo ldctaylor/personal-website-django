@@ -21,10 +21,13 @@
         {% endif %}
 
         <div class="my-3">
+            {{ post.excerpt|safe }}
+            {% comment %}
             {{ post.content|truncatewords_html:50|safe }}
+            {% endcomment %}
         </div>
 
-        <a href="{{ post.get_absolute_url }}">Read more</a>
+        <a href="{{ post.get_absolute_url }}">Read post</a>
     </div>
 </div>
 {% endfor %}

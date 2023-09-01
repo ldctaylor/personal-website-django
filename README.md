@@ -6,7 +6,7 @@ To put my Django skills into practice I decided to build a personal website with
 * [x] Page for 'featured' blog posts 
 * [x] Users can create an account and log in 
 * [x] Logged in users can like/unlike posts 
-* [x] Slugs for post URLs
+* [x] Slugs for post URLs, project URLs
 * [ ] Blog categories
 * [ ] Slugs for blog categories
 * [ ] Ability to comment on blog posts
@@ -14,7 +14,7 @@ To put my Django skills into practice I decided to build a personal website with
 * [ ] Add mini projects e.g. password generator
 * [ ] Post not found / 404 and other errors - graceful handling
 * [ ] Excerpts for the home/index page instead of beginning of post text. Very Academy "Simple Blog App" 1h29
-* [ ] XML Sitemap
+* [x] XML Sitemap
 
 ## Project Status
 Started August 2023. In progress.
