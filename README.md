@@ -24,5 +24,6 @@ Followed a [Learn Django tutorial](https://learndjango.com/tutorials/django-slug
 * [ ] Incorporate 'ID/slug' into URL
 
 ## Bugs / Changes
-* [ ] Categories have a space at the end of the word that is part of the hyperlink, remove this
+* [x] Clicking on "read more" from Featured page leads to error.
+* [x] Categories have a space at the end of the word that is part of the hyperlink, remove this
 * [ ] Do I want the ability for users to create account / log in or shall I remove? Security implications.
