@@ -43,7 +43,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites', # added to enable XML sitemaps
+    'django.contrib.sitemaps', # added to enable XML sitemaps
 ]
+
+SITE_ID = 1 # the sites framework, added to enable XML sitemaps, allows multiple webbsites to run from one single project.
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
