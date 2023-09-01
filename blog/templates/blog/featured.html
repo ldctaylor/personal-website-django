@@ -1,5 +1,9 @@
 {% extends "blog/base.html" %}
 
+{% block title %}
+Featured on Leah Cohen Taylor
+{% endblock %}
+
 {% block page_content %}
 <div class="row">
     <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
@@ -22,9 +26,11 @@
 
         <div class="my-3">
             {{ post.excerpt|safe }}
+
             {% comment %}
             {{ post.content|truncatewords_html:50|safe }}
             {% endcomment %}
+
         </div>
 
         <a href="{{ post.get_absolute_url }}">Read post</a>

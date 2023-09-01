@@ -1,5 +1,8 @@
 {% extends "blog/base.html" %}
 {% load static %}
+{% block title %}
+{{ project.title }} - by Leah Cohen Taylor
+{% endblock %}
 
 {% block page_content %}
 <h1>{{ project.title }}</h1>
