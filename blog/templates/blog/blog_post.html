@@ -56,6 +56,16 @@
         {% else %}
             <p><a class="nav-link" href="{% url 'login' %}"><ion-icon name="heart-outline"></ion-icon> Login to like this post</a></p>
         {% endif %}
+        <div class="row my-3">
+                <h3>Comments:</h3>
+                {% for comment in comments %}
+                <p class="text-muted">
+                    On {{comment.created_on.date }} {{ comment.name }} wrote:
+                </p>
+                <p>{{ comment.content }}</p>
+                {% endfor %}
+        </div>
+
     </div>
 </div>
 {% endblock page_content %}

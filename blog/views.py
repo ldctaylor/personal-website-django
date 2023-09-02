@@ -24,8 +24,12 @@ class DetailPostView(DetailView):
         context = super(DetailPostView, self).get_context_data(*args, **kwargs)
         context['liked_by_user'] = False
         post = get_object_or_404(Post, slug=self.kwargs.get('slug'), status='published') # ensures only published posts are retrieved
+        comments = post.comments.filter(status=True)
+        context['comments'] = comments
         if post.likes.filter(pk=self.request.user.id).exists():
             context['liked_by_user'] = True
+        form = CommentForm()
+
         return context
 
 class LikePost(View):

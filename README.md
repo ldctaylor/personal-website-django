@@ -15,6 +15,7 @@ To put my Django skills into practice I decided to build a personal website with
 * [ ] Post not found / 404 and other errors - graceful handling
 * [ ] Excerpts for the home/index page instead of beginning of post text. Very Academy "Simple Blog App" 1h29
 * [x] XML Sitemap
+* [ ] spam protection for comments
 
 ## Project Status
 Started August 2023. In progress.

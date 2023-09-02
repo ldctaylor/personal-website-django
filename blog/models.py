@@ -44,7 +44,18 @@ class Post(models.Model):
         ordering = ('-created_on',)
 
 class Comment(models.Model):
-    author = models.CharField(max_length=60)
-    body = models.TextField()
+    name = models.CharField(max_length=60)
+    email = models.EmailField()
+    content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
-    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
+    status = models.BooleanField(default=True) #can be used for moderating / disabling comments without deleting
+
+    class Meta:
+        ordering = ('created_on',)
+
+    def __str__(self):
+        return self.body[slice(50)]
+    
+    def truncate_comment(self): # for use in admin screen
+        return self.content[:25]
