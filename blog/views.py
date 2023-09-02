@@ -28,9 +28,15 @@ class DetailPostView(DetailView):
         context['comments'] = comments
         if post.likes.filter(pk=self.request.user.id).exists():
             context['liked_by_user'] = True
-        form = CommentForm()
+        if self.request.user.is_authenticated:
+            context['comment_form'] = CommentForm(instance=self.request.user)
 
         return context
+    
+    def post(self, request, *args, **kwargs):
+        new_comment = Comment(content=request.POST.get('content'),name=self.request.user,post=self.get_object())
+        new_comment.save()
+        return self.get(self, request, *args, **kwargs)
 
 class LikePost(View):
     def post(self, request, slug):

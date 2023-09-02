@@ -13,7 +13,7 @@ class CategoryAdmin(admin.ModelAdmin):
     pass
 
 class CommentAdmin(admin.ModelAdmin):
-    list_display = ('truncate_comment','name', 'email','created_on', 'post', 'status')
+    list_display = ('truncate_comment','name', 'created_on', 'post', 'status')
     list_filter = ('status', 'created_on')
     search_fields = ('name', 'email', 'content')
 

@@ -40,22 +40,25 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("detail_post", kwargs={"slug": self.slug})
     
+    @property
+    def number_comments(self):
+        return Comment.objects.filter(post=self, status=True).count()
+    
     class Meta:
         ordering = ('-created_on',)
 
 class Comment(models.Model):
-    name = models.CharField(max_length=60)
-    email = models.EmailField()
+    name = models.ForeignKey(User,on_delete=models.CASCADE)
     content = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
     status = models.BooleanField(default=True) #can be used for moderating / disabling comments without deleting
 
     class Meta:
-        ordering = ('created_on',)
+        ordering = ('-created_on',)
 
     def __str__(self):
-        return self.body[slice(50)]
+        return self.content[slice(50)]
     
     def truncate_comment(self): # for use in admin screen
         return self.content[:25]
