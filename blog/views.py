@@ -3,6 +3,7 @@ from django.views import View
 from blog.models import Post, Comment 
 from .forms import CommentForm
 from django.views.generic import ListView, DetailView
+from django.http import HttpResponseRedirect
 
 class Index(ListView):
     model = Post
@@ -34,9 +35,9 @@ class DetailPostView(DetailView):
         return context
     
     def post(self, request, *args, **kwargs):
-        new_comment = Comment(content=request.POST.get('content'),name=self.request.user,post=self.get_object())
+        new_comment = Comment(content=request.POST.get('content'),name=self.request.user,post=self.get_object())  
         new_comment.save()
-        return self.get(self, request, *args, **kwargs)
+        return HttpResponseRedirect(f'/blog/{self.get_object().slug}/')
 
 class LikePost(View):
     def post(self, request, slug):

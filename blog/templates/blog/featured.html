@@ -25,10 +25,10 @@ Featured on Leah Cohen Taylor
         {% endif %}
 
         <div class="my-3">
-            {{ post.excerpt|safe }}
+            {{ post.excerpt }}
 
             {% comment %}
-            {{ post.content|truncatewords_html:50|safe }}
+            {{ post.content|truncatewords_html:50 }}
             {% endcomment %}
 
         </div>
