@@ -29,7 +29,7 @@
             Written by {{post.author.username }} on {{ post.created_on }}
         </p>
         <div>
-            {{ post.content }}
+            {{ post.content|safe }}
         </div>
     </div>
 </div>
@@ -73,9 +73,9 @@
                 <h3>Comments:</h3>
                 {% if comments %}
                     {% if comments.count == 1 %}
-                        <p class="text-muted">{{ object.number_comments }} comment</p>                       
+                        <p class="text-muted">{{ comments.count }} comment</p>                       
                     {% else %}
-                        <p class="text-muted">{{ object.number_comments }} comments</p>
+                        <p class="text-muted">{{ comments.count }} comments</p>
                     {% endif %}
                     {% for comment in comments %}
                     <p class="text-muted">

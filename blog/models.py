@@ -40,10 +40,6 @@ class Post(models.Model):
     def get_absolute_url(self):
         return reverse("detail_post", kwargs={"slug": self.slug})
     
-    @property
-    def number_comments(self):
-        return Comment.objects.filter(post=self, status=True).count()
-    
     class Meta:
         ordering = ('-created_on',)
 

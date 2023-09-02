@@ -26,7 +26,7 @@ Followed a [Learn Django tutorial](https://learndjango.com/tutorials/django-slug
 * [ ] Incorporate 'ID/slug' into URL
 
 ## Bugs / Changes / Tasks
-* [ ] How to display tinymce formatting while keeping content fields safe from injection
+* [ ] How to display tinymce formatting while keeping content and comment fields safe from injection (content is currently set to safe)
 * [ ] Display email address in comment table (admin view)
 * [x] Clicking on "read more" from Featured page leads to error.
 * [x] Categories have a space at the end of the word that is part of the hyperlink, remove this
