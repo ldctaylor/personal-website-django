@@ -26,6 +26,10 @@ Followed a [Learn Django tutorial](https://learndjango.com/tutorials/django-slug
 * [ ] Incorporate 'ID/slug' into URL
 
 ## Bugs / Changes / Tasks
+* [ ] Optimise templates - create template for pagination
+* [x] Pagination on category page not working
+* [ ] Autopopulate the author of a blog post when saved
+* [ ] Add front end for adding blog posts (not from admin view)
 * [ ] How to display tinymce formatting while keeping content and comment fields safe from injection (content is currently set to safe)
 * [ ] Display email address in comment table (admin view)
 * [x] Clicking on "read more" from Featured page leads to error.

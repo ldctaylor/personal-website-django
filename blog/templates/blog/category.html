@@ -1,0 +1,59 @@
+{% extends "blog/base.html" %}
+
+{% block page_content %}
+<div class="row">
+    <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
+        <h1 class="fw-bolder">Articles about {{ category }}</h1>
+    </div>
+</div>
+
+{% for post in page_obj %}
+
+<div class="row">
+    <div class="col-md-6 col-11 mx-md-auto mx-3 mt-5 mb-5">
+        <h3 class="fw-bold"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
+        <p class="text-muted"> {{post.created_on }} by {{post.author.username }} | {{ post.likes.count }} like{{post.likes.count|pluralize}}
+        </p>
+        <div class="my-3">
+            {{ post.excerpt }            
+        </div>
+
+        <a href="{{ post.get_absolute_url }}">Read post</a> 
+    </div>
+</div>
+{% endfor %}
+
+<nav>
+    <ul class="pagination">
+        <div class="mx-auto d-flex flex-row mt-5">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page=1">&laquo; First</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% endif %}
+
+            <li class="page-item">
+                <a class="page-link">
+                    Page {{page_obj.number }} of {{page_obj.paginator.num_pages }}
+                </a>
+            </li>
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+                <li class="page-item">
+                    <a class="page-link" href="?page={{page_obj.paginator.num_pages }}">Last &raquo;
+                    </a>
+                </li>
+            {% endif %}
+
+        </div>
+    </ul>
+</nav>
+
+
+{% endblock page_content %}

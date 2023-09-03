@@ -20,7 +20,7 @@
         <p class="text-muted">Categories:
         {% endif %}        
         {% for category in post.categories.all %}
-            <a href="#" class="mx-1">
+            <a href="{% url 'category' category.name %}" class="mx-1">
                 {{category.name}}</a>
             {% endfor %}
         </p>
