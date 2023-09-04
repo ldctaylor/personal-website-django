@@ -3,6 +3,9 @@ from tinymce.models import HTMLField
 from django.contrib.auth.models import User
 from django.urls import reverse
 
+def user_directory_path(instance, filename):
+    return 'posts/{0}/{1}'.format(instance.id, filename)
+
 class Category(models.Model):
     name = models.CharField(max_length=50)
 
@@ -26,6 +29,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True, null=False)
     excerpt = HTMLField(null=True)
+    image = models.ImageField(upload_to=user_directory_path, default='posts/default.svg')
     status = models.CharField(max_length=10, choices=options, default='draft')
     content = HTMLField()
     created_on = models.DateTimeField(auto_now_add=True)

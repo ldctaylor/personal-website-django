@@ -16,14 +16,8 @@ Featured on Leah Cohen Taylor
 <div class="row">
     <div class="col-md-6 col-11 mx-md-auto mx-3 mt-5 mb-5">
         <h3 class="fw-bold"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-        <p class="text-muted"> {{post.created_on }}</p>
-        <p class="text-muted">Posted by {{post.author.username }}</p>
-        {% if post.likes.count == 1 %}
-            <p class="text-muted">{{ post.likes.count }} person likes this post</p>
-        {% else %}
-            <p class="text-muted"> {{post.likes.count }} people like this post</p>
-        {% endif %}
-
+        <p class="text-muted">Posted by {{post.author.username }} on {{post.created_on }} | {{ post.likes.count }} like{{post.likes.count|pluralize}}</p>
+        <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}" />
         <div class="my-3">
             {{ post.excerpt }}
 

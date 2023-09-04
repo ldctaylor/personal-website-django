@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from blog.models import Post, Comment 
+from blog.models import Post, Comment, Category 
 from .forms import CommentForm
 from django.views.generic import ListView, DetailView
 from django.http import HttpResponseRedirect
@@ -67,3 +67,11 @@ def blog_category(request, category):
     }
 
     return render(request, 'blog/category.html', context)
+
+def category_list(request):
+    category_list = Category.objects.all()
+    context = {
+        'category_list': category_list,
+    }
+
+    return context

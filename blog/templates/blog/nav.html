@@ -11,6 +11,16 @@
       <li class="nav-item">
         <a class="nav-link" href="{% url 'index' %}">Blog</a>
       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" arla-haspopup="true" aria-expanded="false">Categories</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          {% for category in category_list %}
+            <a class="dropdown-item" href="/blog/category/{{ category.name }}/">
+            {{ category.name|title }}
+            </a>
+          {% endfor %}
+        </div>
+      </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
       </li>

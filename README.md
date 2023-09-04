@@ -7,15 +7,17 @@ To put my Django skills into practice I decided to build a personal website with
 * [x] Users can create an account and log in 
 * [x] Logged in users can like/unlike posts 
 * [x] Slugs for post URLs, project URLs
-* [ ] Blog categories
-* [ ] Slugs for blog categories
-* [ ] Ability to comment on blog posts
+* [x] Blog categories
+* [x] Slugs for blog categories
+* [ ] Media management
+* [x] Ability to comment on blog posts
 * [ ] Security features - highlight cs skills
 * [ ] Add mini projects e.g. password generator
 * [ ] Post not found / 404 and other errors - graceful handling
 * [ ] Excerpts for the home/index page instead of beginning of post text. Very Academy "Simple Blog App" 1h29
 * [x] XML Sitemap
 * [ ] spam protection for comments
+* [ ] Multi-level comments using MPTT
 
 ## Project Status
 Started August 2023. In progress.
@@ -25,7 +27,12 @@ Followed a [Learn Django tutorial](https://learndjango.com/tutorials/django-slug
 * [ ] Extend functionality to automatically generate slugs based on post title?
 * [ ] Incorporate 'ID/slug' into URL
 
+### MPTT
+Explain what it is.
+Very Academy tutorial.
+
 ## Bugs / Changes / Tasks
+* [ ] change layout to grid style
 * [ ] Optimise templates - create template for pagination
 * [x] Pagination on category page not working
 * [ ] Autopopulate the author of a blog post when saved
@@ -39,3 +46,9 @@ Followed a [Learn Django tutorial](https://learndjango.com/tutorials/django-slug
 
 ## Deployment
 * [ ] Set domain name for XML sitemap, in admin/sites
+
+## Dependencies
+django-crispy-forms
+crispy-bootstrap5
+django-tinymce
+pillow
