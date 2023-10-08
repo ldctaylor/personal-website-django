@@ -19,7 +19,7 @@ To put my Django skills into practice I decided to build a personal website with
 * [x] XML Sitemap
 * [ ] spam protection for comments
 * [ ] Multi-level comments using MPTT
-
+   
 ## Project Status
 Started August 2023. In progress.
 
