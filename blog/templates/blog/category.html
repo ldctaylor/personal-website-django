@@ -16,7 +16,7 @@
         </p>
         <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}" />
         <div class="my-3">
-            {{ post.excerpt }            
+            {{ post.excerpt|safe }            
         </div>
 
         <a href="{{ post.get_absolute_url }}">Read post</a> 
