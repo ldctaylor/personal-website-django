@@ -50,6 +50,8 @@ Very Academy tutorial.
 https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
 https://learndjango.com/tutorials/django-best-practices-security
 * [ ] Set domain name for XML sitemap, in admin/sites
+* [ ] DEBUG = FALSE
+* [ ] ALLOWED_HOSTS = ['mydomain.com']
 
 ## Dependencies
 django-crispy-forms
