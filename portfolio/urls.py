@@ -15,7 +15,7 @@ sitemaps = {
 }
 
 urlpatterns = [
-    path('', Featured.as_view(), name='featured'),
+    path('', Featured.as_view(), name='home'),
     path('opsroom/', admin.site.urls),
     path('projects/', include('projects.urls')),
     path('blog/', include('blog.urls')),
