@@ -6,13 +6,13 @@ def project_index(request):
     context = {
         'projects' : projects
     }
-    return render(request, 'project_index.html', context)
+    return render(request, 'project.html', context)
 
-def project_detail(request, slug):
-    project = Project.objects.get(slug=slug)
-    context = {
-        'project' : project
-    }
-    return render(request, 'project_detail.html', context)
+# def project_detail(request, slug):
+#     project = Project.objects.get(slug=slug)
+#     context = {
+#         'project' : project
+#     }
+#     return render(request, 'project_detail.html', context)
 
 
