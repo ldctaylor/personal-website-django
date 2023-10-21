@@ -2,32 +2,30 @@
 
 {% block page_content %}
 <div class="row">
-    <div class="col-md-6 col-12 mx-md-auto mx-3 mt-5 mb-5">
+    <div class="col-md-6 col-12 mx-3 mt-5 mb-5">
         <h1 class="fw-bolder">Articles</h1>
         <h5 class="text-muted">Coffees and dreams.</h5>
     </div>
 </div>
 
-{% for post in object_list %}
-
 <div class="row">
-    <div class="col-md-6 col-11 mx-md-auto mx-3 mt-5 mb-5">
-        <h3 class="fw-bold"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h3>
-        <p class="text-muted">Posted by {{post.author.username }} on {{post.created_on }} | {{ post.likes.count }} like{{post.likes.count|pluralize}}</p>
-        <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}" />
-        <div class="my-3">
-            {{ post.excerpt|safe }}
-
-            {% comment %}
-            {{ post.content|truncatewords_html:50 }}
-            {% endcomment %}
-            
+    {% for post in object_list %}
+    <!-- <div class="col-md-6 col-11 mx-md-auto mx-3 mt-5 mb-5"> -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title mb-2">{{ post.title }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Posted by {{post.author.username }} on {{post.created_on.date }} | {{ post.likes.count }} like{{post.likes.count|pluralize}}</h6>
+                    <img class="card-img-top" src="{{post.image.url}}" alt="{{ post.title }}" />
+                    <div class="my-3">
+                        {{ post.excerpt|safe }}
+                    </div>
+                    <a href="{{ post.get_absolute_url }}">Read more</a> 
+                </div>
+            </div>
         </div>
-
-        <a href="{{ post.get_absolute_url }}">Read post</a> 
-    </div>
+    {% endfor %}
 </div>
-{% endfor %}
 
 <nav>
     <ul class="pagination">
