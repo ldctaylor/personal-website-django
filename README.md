@@ -14,7 +14,7 @@ To put my Django skills into practice I decided to build a personal website with
 * [x] Ability to comment on blog posts
 * [ ] Security features - highlight cs skills
 * [ ] Add mini projects e.g. password generator
-* [ ] Post not found / 404 and other errors - graceful handling
+* [x] Post not found / 404 and other errors - graceful handling
 * [x] Excerpts for the home/index page instead of beginning of post text.
 * [x] XML Sitemap
 * [ ] spam protection for comments
