@@ -52,7 +52,7 @@ class Post(models.Model):
 
 class Comment(models.Model):
     name = models.ForeignKey(User,on_delete=models.CASCADE)
-    content = models.TextField()
+    comment = models.TextField()
     created_on = models.DateTimeField(auto_now_add=True)
     post = models.ForeignKey('Post', on_delete=models.CASCADE, related_name='comments')
     status = models.BooleanField(default=True) #can be used for moderating / disabling comments without deleting

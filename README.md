@@ -45,6 +45,11 @@ Very Academy tutorial.
 * [x] Categories have a space at the end of the word that is part of the hyperlink, remove this
 * [ ] Do I want the ability for users to create account / log in or shall I remove? Security implications.
 * [ ] Create sitemap for static pages if I end up with many
+* [ ] Move the hamburger sub options to be right aligned not left
+* [ ] Make the whole of an article be a link 
+* [ ] Change colour of Like this post 
+* [ ] Do not reload whole page for liking post / adding comment
+* [x] Change comment label "Content" to "Comment" on blog post
 
 ## Deployment
 https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
