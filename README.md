@@ -50,6 +50,7 @@ Very Academy tutorial.
 * [x] Change colour of Like this post 
 * [ ] Do not reload whole page for liking post / adding comment
 * [x] Change comment label "Content" to "Comment" on blog post
+* [ ] Add "Active" state to nav bar
 
 ## Deployment
 https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
