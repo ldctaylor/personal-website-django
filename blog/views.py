@@ -10,7 +10,7 @@ class Index(ListView):
     model = Post
     queryset = Post.newmanager.all().order_by('-created_on')
     template_name = 'blog/index.html'
-    paginate_by = 5
+    paginate_by = 6
 
 class Featured(ListView):
     model = Post

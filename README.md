@@ -52,6 +52,7 @@ Very Academy tutorial.
 * [x] Change comment label "Content" to "Comment" on blog post
 * [ ] Add "Active" state to nav bar
 * [ ] Align "Read More" of cards to be at bottom of card
+* [ ] Add footer
 
 ## Deployment
 https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
