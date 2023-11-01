@@ -51,6 +51,7 @@ Very Academy tutorial.
 * [ ] Do not reload whole page for liking post / adding comment
 * [x] Change comment label "Content" to "Comment" on blog post
 * [ ] Add "Active" state to nav bar
+* [ ] Align "Read More" of cards to be at bottom of card
 
 ## Deployment
 https://docs.djangoproject.com/en/dev/howto/deployment/checklist/
