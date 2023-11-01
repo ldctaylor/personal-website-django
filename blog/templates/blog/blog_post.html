@@ -46,16 +46,16 @@
             {% if liked_by_user %}
                 <form method="POST" action="{% url 'like_post' post.slug %}">
                     {% csrf_token %}
-                    <button class="btn btn-outline-primary"><ion-icon name="heart-dislike-outline"></ion-icon> Unlike this post</button>
+                    <button class="btn btn-outline-secondary"><ion-icon name="heart-dislike" style="color: red"></ion-icon> Unlike this post</button>
                 </form>
             {% else %}
                 <form method="POST" action="{% url 'like_post' post.slug %}">
                     {% csrf_token %}
-                    <button class="btn btn-outline-primary"><ion-icon name="heart-outline"></ion-icon> Like this post</button>
+                    <button class="btn btn-outline-secondary"><ion-icon name="heart" style="color:red"></ion-icon> Like this post</button>
                 </form>
             {% endif %}
         {% else %}
-            <p><a class="nav-link" href="{% url 'login' %}"><ion-icon name="heart-outline"></ion-icon> Login to like this post</a></p>
+            <p><a class="nav-link" href="{% url 'login' %}"><ion-icon name="heart" style="color: red"></ion-icon> Login to like this post</a></p>
         {% endif %}
         <div class="row my-3">
             {% if user.is_authenticated %}
@@ -63,11 +63,11 @@
                     {% csrf_token %}
                     <div class="form-group">
                         {{ comment_form }}
-                        <button class="btn btn-info" type="submit">Post comment</button> 
+                        <button class="btn btn-secondary" type="submit">Post comment</button> 
                     </div>
                 </form>
             {% else %}
-                <a class="btn btn-outline-info" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment</a>
+                <a class="btn btn-outline-secondary" href="{% url 'login' %}?next={{request.path}}">Log in to add a comment</a>
             {% endif %}
         </div>
         <div class="row my-3">

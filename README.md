@@ -47,7 +47,7 @@ Very Academy tutorial.
 * [ ] Create sitemap for static pages if I end up with many
 * [ ] Move the hamburger sub options to be right aligned not left
 * [ ] Make the whole of an article be a link 
-* [ ] Change colour of Like this post 
+* [x] Change colour of Like this post 
 * [ ] Do not reload whole page for liking post / adding comment
 * [x] Change comment label "Content" to "Comment" on blog post
 
